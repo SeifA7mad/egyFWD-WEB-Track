@@ -18,7 +18,7 @@ const createNavBar = () => {
 };
 
 //Function: scroll to the section based on navigation element clicked on (attribute: scroll-id)
-const scrollTo = (event) => {
+const scrollToSection = (event) => {
   event.preventDefault();
   const ankers = document.getElementsByClassName('active_nav');
   if (ankers[0] !== undefined) {
@@ -103,7 +103,7 @@ const collapseContent = (event) => {
 const addEventListners = () => {
   document
     .getElementById('navbar__list')
-    .addEventListener('click', scrollTo, false);
+    .addEventListener('click', scrollToSection, false);
   window.addEventListener('scroll', isInViewport, false);
   window.addEventListener('scroll', toggleNavbar, false);
   window.addEventListener('scroll', toggleTopBtn, false);
