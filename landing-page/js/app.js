@@ -35,8 +35,14 @@ const scrollToSection = (event) => {
 //Helper Function: to check if the html element in the view port for the client or not
 const isInViewportHelper = (el) => {
   const bounding = el.getBoundingClientRect();
-
-  return bounding.top >= 0 && bounding.bottom * 0.8 <= window.innerHeight;
+  let perc = 0.7;
+  if (window.innerHeight < 900) {
+    perc = 0.5;
+  }
+  return (
+    bounding.bottom * perc <= window.innerHeight &&
+    bounding.top >= 0
+  );
 };
 
 const sections = document.getElementsByTagName('section');
@@ -48,7 +54,6 @@ const isInViewport = () => {
     if (isInViewportHelper(sections[i])) {
       sections[i].classList.add('your-active-class');
       ankers[i].classList.add('active_nav');
-      return;
     } else {
       sections[i].classList.remove('your-active-class');
       ankers[i].classList.remove('active_nav');
