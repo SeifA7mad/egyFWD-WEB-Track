@@ -1,5 +1,5 @@
 //Funtion: Create Navigation bar dynamically based on the sections
-const createNavBar = () => {
+const createNavBar = (() => {
   const sections = [...document.querySelectorAll('section')];
 
   const listElements = sections.map((section) => {
@@ -15,7 +15,7 @@ const createNavBar = () => {
     fragment.appendChild(listElement);
   }
   document.getElementById('navbar__list').appendChild(fragment);
-};
+})();
 
 //Function: scroll to the section based on navigation element clicked on (attribute: scroll-id)
 const scrollToSection = (event) => {
@@ -43,10 +43,7 @@ const isInViewportHelper = (el) => {
     perc = 0.5;
   }
 
-  return (
-    bounding.bottom * perc <= window.innerHeight &&
-    bounding.top >= 0
-  );
+  return bounding.bottom * perc <= window.innerHeight && bounding.top >= 0;
 };
 
 const sections = document.getElementsByTagName('section');
@@ -109,7 +106,7 @@ const collapseContent = (event) => {
 };
 
 //Function: add all  the event listners
-const addEventListners = () => {
+const addEventListners = (() => {
   document
     .getElementById('navbar__list')
     .addEventListener('click', scrollToSection, false);
@@ -120,7 +117,7 @@ const addEventListners = () => {
   [...document.getElementsByClassName('collapsible-btn')].forEach((el) => {
     el.addEventListener('click', collapseContent, false);
   });
-};
+})();
 
-createNavBar();
-addEventListners();
+// createNavBar();
+// addEventListners();
