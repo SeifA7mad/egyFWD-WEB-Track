@@ -32,13 +32,17 @@ const scrollToSection = (event) => {
   }
 };
 
+let perc = 0.7; //holds the % to check for the correct visiable section across diff devices
+
 //Helper Function: to check if the html element in the view port for the client or not
 const isInViewportHelper = (el) => {
   const bounding = el.getBoundingClientRect();
-  let perc = 0.7;
-  if (window.innerHeight < 900) {
+
+  //change the % if the height of the device less than 850
+  if (window.innerHeight < 850) {
     perc = 0.5;
   }
+
   return (
     bounding.bottom * perc <= window.innerHeight &&
     bounding.top >= 0
