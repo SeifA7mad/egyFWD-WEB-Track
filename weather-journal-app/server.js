@@ -6,10 +6,11 @@ const cors = require('cors');
 const app = express();
 const port = 4000;
 
-// no need for body-parser pakage as these functions (urlencoded & json) are included within the express obj
+// no need for body-parser as these functions (urlencoded & json) are included within newer versions of express 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-// OR
+
+// here it's anyway
 // app.use(bodyParser.urlencoded({ extended: false }));
 // app.use(bodyParser.json());
 
