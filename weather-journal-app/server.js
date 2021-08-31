@@ -24,9 +24,20 @@ const server = app.listen(port, () =>
   console.log(`Server is running on port: ${port}`)
 );
 
-let 
+let projectData = {};
 
+app.get('/data', (req, res) => {
+  res.send(projectData);
+});
 
-
-
-
+app.post('/data', (req, res) => {
+  const enteredData = req.body;
+  const transformData = {
+    temperature: enteredData.temperature,
+    date: enteredData.date,
+    userResponse: enteredData.userResponse,
+  };
+  projectData = transformData;
+  console.log(projectData);
+  res.send(projectData);
+});
