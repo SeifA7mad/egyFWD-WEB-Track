@@ -1,6 +1,6 @@
 // Personal API Key for OpenWeatherMap API
 const baseUrl = 'https://api.openweathermap.org/data/2.5/weather?zip=';
-const apiKey = '&appid=53f9205b25dcd994f69d550835e47081';
+const apiKey = '&appid=53f9205b25dcd994f69d550835e47081&units=metric';
 
 const checkInputValidaty = (inputValue) => {
   if (inputValue === '') {
