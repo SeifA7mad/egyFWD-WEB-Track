@@ -14,7 +14,6 @@ document.getElementById('generate').addEventListener('click', () => {
   // get the values from user inputs
   const inputedZipCode = document.getElementById('zip').value;
   const inputedFeelings = document.getElementById('feelings').value;
-  console.log(inputedZipCode.length);
 
   // inputs Validation
   if (
@@ -51,6 +50,7 @@ const fetchWeatherData = async (baseUrl, apiKey, zipCode) => {
     const response = await fetch(`${baseUrl}${zipCode}${apiKey}`);
 
     if (!response.ok) {
+      alert('An error acquired: check the zip code entered');
       throw new Error('request failed');
     }
 
